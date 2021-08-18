@@ -23,14 +23,27 @@ let citations = [
     ["Un pessimiste voit la difficulté dans chaque opportunité. Un optimiste voit une opportunité dans chaque difficulté.", "Winston Churchill"]
   ];
 
+  let nombreAleatoire = Math.random(citations.length);
+  console.log(nombreAleatoire);
+
+
+
 let citation = document.querySelector('#citation');
 let author   = document.querySelector('#auteur');
 let button   = document.querySelector('#nouveau');
 
-let actualNumber = citations.findIndex(citation);
-console.log(actualNumber);
+let dernier = citations.indexOf(citation);
+let nombreAleatoire;
 
-let nombreAleatoire = Math.random(dernier); // contient le nombre aléatoire généré
+button.addEventListener('click', )
+
+do {
+
+
+
+} while (dernier == nombreAleatoire);
+
+// let nombreAleatoire = Math.random(dernier); // contient le nombre aléatoire généré
 
 function genererNombreEntier(max) {
     return Math.floor(Math.random() * Math.floor(max));
