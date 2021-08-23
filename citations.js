@@ -1,9 +1,4 @@
-let nouveau   = document.querySelector('#nouveau');
-let citation  = document.querySelector('#citation');
-let auteur    = document.querySelector('#auteur');
 
-let dernier   = 0;
-let nombreAleatoire = 0;
 let citations = [
   ["La vie est un mystère qu'il faut vivre, et non un problème à résoudre.", "Gandhi"],
   ["Le plus grand risque est de ne prendre aucun risque.", "Mark Zuckerberg"],
@@ -28,17 +23,27 @@ let citations = [
   ["Un pessimiste voit la difficulté dans chaque opportunité. Un optimiste voit une opportunité dans chaque difficulté.", "Winston Churchill"]
 ];
 
-// Fonction permettant de générer un nombre aléatoire
+
+let nouveau   = document.querySelector('#nouveau'); // DOM du bouton pour une nouvelle citation
+let citation  = document.querySelector('#citation');// DOM de la citation
+let auteur    = document.querySelector('#auteur');  // DOM de l'auteur de la citation
+
+let dernier   = 0;       // initialisation de la dernière citation émise, ici 0
+let nombreAleatoire = 0; // initialisation de la variable d'un nombre aléatoire pour générer aléatoirement une citation
+
+
+// Fonction permettant de générer un nombre aléatoire ENTIER 
 function genererNombreEntier(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+// Evènement " cliquer " sur le bouton 'Nouvelle citation'
 nouveau.addEventListener('click', () => {
   do {
-    nombreAleatoire = genererNombreEntier(citations.length);
-  } while (nombreAleatoire == dernier)
+    nombreAleatoire = genererNombreEntier(citations.length); // genere un nombre aléatoire entier a partir de la longueur du tableau
+  } while (nombreAleatoire == dernier) // Tant que le nombre Aleatoire est égale a la dernière citation ( pour pas tomber 2 fois sur la même )
     
-  citation.textContent = citations[nombreAleatoire][0];
-  auteur.textContent   = citations[nombreAleatoire][1];
-  dernier              = nombreAleatoire;
+  citation.textContent = citations[nombreAleatoire][0]; // Change le contenue, index( du nombre aléatoire) citation [0] du tableau a 2 dimensions 
+  auteur.textContent   = citations[nombreAleatoire][1]; // Change le contenue, index( du nombre aléatoire) auteur [1]  du tableau a 2 dimensions
+  dernier              = nombreAleatoire;               // dernier = nombreAleatoire, pour éviter une répétition de citation, grâce au Do..While
 });
